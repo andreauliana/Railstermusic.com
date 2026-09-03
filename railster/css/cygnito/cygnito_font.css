@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Cygnito';
+	src: url('cygnito-mono.eot');
+	src: url('cygnito-mono.eot?#iefix') format('embedded-opentype'),
+	     url('cygnito-mono.woff') format('woff'),
+	     url('cygnito-mono.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}

@@ -1,0 +1,4 @@
+[23-Jun-2025 11:04:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/railxeji/public_html/wp-content/themes/railster/index.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/railxeji/public_html/wp-content/themes/railster/index.php on line 15
