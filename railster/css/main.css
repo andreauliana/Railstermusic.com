@@ -94,6 +94,13 @@ input, select, textarea {
 	color: #fff;
 	margin-bottom: .5rem;
 }
+.home-events .previous-events-heading,
+.home-events .previous-events {
+	opacity: .45;
+}
+.home-events .previous-events {
+	opacity: .3;
+}
 .hero-text a {
 	display: inline;
 	font-size: 13px;
@@ -338,7 +345,7 @@ nav .sidenav-trigger i {
 	border-bottom: rgba(51,255,51,.9) 1.5px solid;
 }
 .menu-menu-1-container {
-	background-image: url('https://railstermusic.com/wp-content/themes/railster/img/Railster-Lettering-2022-rotate.gif');
+	background-image: url('../img/Railster-Lettering-2022-rotate.gif');
     background-repeat: no-repeat;
     background-position: left 6% bottom 0;
     background-size: 30px;

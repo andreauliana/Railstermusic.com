@@ -8,7 +8,7 @@
 ?>
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			&copy;2025 All Rights Reserved
+			&copy;<?php echo esc_html( gmdate( 'Y' ) ); ?> All Rights Reserved
 			<span class="sep"> | </span>
 				<a href="mailto:railsterbeats@gmail.com">Contact</a>
 		</div>

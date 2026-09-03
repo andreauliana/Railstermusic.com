@@ -18,23 +18,22 @@ get_header();
 		the_post();
 		get_template_part( 'template-parts/content', 'page' );
 	endwhile;
-	?><div>
+	?>
+	<div class="home-events">
 	<hr>
 	<h4>Upcoming:</h4>
-	<p>25 August - at Visionario, with Sleeping Pills (for UdinElettronica) (UD)</p>
-	<p>18 September - TBA (UD)</p>
+	<ul class="event-list upcoming-events">
+		<?php foreach ( railster_event_lines( 'railster_upcoming_events', "25 August - at Visionario, with Sleeping Pills (for UdinElettronica) (UD)\n18 September - TBA (UD)" ) as $event ) : ?>
+			<li><?php echo esc_html( $event ); ?></li>
+		<?php endforeach; ?>
+	</ul>
 	<br>
-	<h4 style="opacity: .45;">Previous Gigs:<h4>
-	<p style="opacity: .3;">
-	13 July at Visionario (UD)<br>
-	29 March at Monsieur D (PN)<br>
-	16 April at Tarantola Lib. (UD)<br>
-	25 April at KK (UD)<br>
-	06 May at Lib. Tarantola for MattiaC (UD)<br>
-	24 May at Kaleidoscienza, 22:30 (UD)<br>
-	07 June at Mamm (UD)<br>
-	15 June at Terminal Festival (UD)
-	</p>
+	<h4 class="previous-events-heading">Previous Gigs:</h4>
+	<ul class="event-list previous-events">
+		<?php foreach ( railster_event_lines( 'railster_previous_events', "13 July at Visionario (UD)\n29 March at Monsieur D (PN)\n16 April at Tarantola Lib. (UD)\n25 April at KK (UD)\n06 May at Lib. Tarantora for MattiaC (UD)\n24 May at Kaleidoscienza, 22:30 (UD)\n07 June at Mamm (UD)\n15 June at Terminal Festival (UD)" ) as $event ) : ?>
+			<li><?php echo esc_html( $event ); ?></li>
+		<?php endforeach; ?>
+	</ul>
 	</div>
 </main>
 <?php get_footer();

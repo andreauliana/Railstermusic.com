@@ -125,22 +125,19 @@ add_action( 'widgets_init', 'railster_widgets_init' );
  * Enqueue scripts and styles.
  */
 function railster_scripts() {
-	// Enqueue jQuery from WordPress core
-	wp_enqueue_script( 'jquery' );
-
-	// Enqueue additional scripts
 	wp_enqueue_script( 'materialize-js', get_template_directory_uri() . '/js/materialize.min.js', array(), '1.0', true );
-	wp_enqueue_script( 'wow-js', get_template_directory_uri() . '/js/wow.min.js', array(), '1.0', true );
 
 	// Enqueue your custom script
-	wp_enqueue_script( 'railster-main', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0', true );
+	wp_enqueue_script( 'railster-main', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true );
 
 	// Enqueue styles
 	wp_enqueue_style( 'railster-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'railster-style', 'rtl', 'replace' );
 
-	// Enqueue navigation script
-	wp_enqueue_script( 'railster-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_style( 'materialize-css', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(), '1.0.0' );
+	wp_enqueue_style( 'railster-main', get_template_directory_uri() . '/css/main.css', array(), _S_VERSION );
+	wp_enqueue_style( 'railster-icons', get_template_directory_uri() . '/css/auicon-v1.2/style.css', array(), _S_VERSION );
+	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null );
 
 	// Check if comments are open and enqueue comment-reply script
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -148,6 +145,21 @@ function railster_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'railster_scripts' );
+
+/**
+ * Return one event per non-empty line from a theme setting.
+ *
+ * @param string $setting Theme-mod name.
+ * @param string $default Default event text.
+ * @return array
+ */
+function railster_event_lines( $setting, $default ) {
+	$events = get_theme_mod( $setting, $default );
+	$events = preg_split( '/\r\n|\r|\n/', $events );
+	$events = array_map( 'trim', $events );
+
+	return array_filter( $events );
+}
 
 
 /**

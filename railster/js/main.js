@@ -1,46 +1,22 @@
-jQuery(document).ready(function($) {
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 300, function() {
-        window.location.hash = hash;
-      });
-    } // End if
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      var target = document.querySelector(link.getAttribute('href'));
+
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
-});
 
+  if (window.M) {
+    var sidenav = document.querySelectorAll('.sidenav');
+    var dropdowns = document.querySelectorAll('.dropdown-trigger');
+    var carousels = document.querySelectorAll('.carousel');
 
-
-
-jQuery(function($){
-    
-  $('.sidenav').sidenav();
-
-    
-    $('body').css({
-        overflow: 'visible'
-    });
-
-
-    $('#nextButton').click(function() {
-        $('.carousel').carousel('next');
-    });
-    $('#prevButton').click(function() {
-        $('.carousel').carousel('prev');
-    }); 
-    $('.nextButton').click(function() {
-        $('.carousel').carousel('next');
-    });
-    $('.prevButton').click(function() {
-        $('.carousel').carousel('prev');
-    }); 
-    $('.dropdown-trigger').dropdown();
-    
+    M.Sidenav.init(sidenav);
+    M.Dropdown.init(dropdowns);
+    M.Carousel.init(carousels);
+  }
 });
