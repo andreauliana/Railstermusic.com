@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.1' );
 }
 function railster_setup() {
 
@@ -101,6 +101,20 @@ function railster_content_width() {
 }
 add_action( 'after_setup_theme', 'railster_content_width', 0 );
 
+function railster_preload_fonts() {
+	$theme_uri = get_template_directory_uri();
+
+	printf(
+		'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+		esc_url( $theme_uri . '/css/terminal/terminal-grotesque-webfont.woff2' )
+	);
+	printf(
+		'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+		esc_url( $theme_uri . '/css/w95-sans-serif/w-95-sans-serif.woff2' )
+	);
+}
+add_action( 'wp_head', 'railster_preload_fonts', 1 );
+
 /**
  * Register widget area.
  *
@@ -131,11 +145,10 @@ function railster_scripts() {
 	wp_enqueue_script( 'railster-main', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true );
 
 	// Enqueue styles
+	wp_enqueue_style( 'materialize-css', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(), '1.0.0' );
 	wp_enqueue_style( 'railster-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'railster-style', 'rtl', 'replace' );
 
-	wp_enqueue_style( 'materialize-css', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(), '1.0.0' );
-	wp_enqueue_style( 'railster-main', get_template_directory_uri() . '/css/main.css', array(), _S_VERSION );
 	wp_enqueue_style( 'railster-icons', get_template_directory_uri() . '/css/auicon-v1.2/style.css', array(), _S_VERSION );
 	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null );
 

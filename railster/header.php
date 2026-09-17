@@ -24,10 +24,9 @@
 
 			<div class="container">
 				<div class="row"> 
-				
-				<a class="logo-nav brand-logo left" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" src="<?php echo esc_url( get_template_directory_uri() . '/img/Railster-Lettering-2022.gif' ); ?>">
-				</a>
+					<a class="logo-nav brand-logo left" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" src="<?php echo esc_url( get_template_directory_uri() . '/img/Railster-Lettering-2022.gif' ); ?>">
+					</a>
 
 				<div class="hide-on-med-and-down right">
 					<?php

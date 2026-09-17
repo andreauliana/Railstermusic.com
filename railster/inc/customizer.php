@@ -26,7 +26,7 @@ function railster_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'railster_upcoming_events',
 		array(
-			'default'           => "25 August - at Visionario, with Sleeping Pills (for UdinElettronica) (UD)\n18 September - TBA (UD)",
+			'default'           => "18 September - at Parco di Sant'Osvaldo, for La Stagione di Cas*Aupa, 18:00, free entry (UD)",
 			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
@@ -43,7 +43,7 @@ function railster_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'railster_previous_events',
 		array(
-			'default'           => "13 July at Visionario (UD)\n29 March at Monsieur D (PN)\n16 April at Tarantola Lib. (UD)\n25 April at KK (UD)\n06 May at Lib. Tarantola for MattiaC (UD)\n24 May at Kaleidoscienza, 22:30 (UD)\n07 June at Mamm (UD)\n15 June at Terminal Festival (UD)",
+			'default'           => "25 August - at Visionario, with Sleeping Pills (for UdinElettronica) (UD)\n13 July at Visionario (UD)\n29 March at Monsieur D (PN)\n16 April at Tarantola Lib. (UD)\n25 April at KK (UD)\n06 May at Lib. Tarantola for MattiaC (UD)\n24 May at Kaleidoscienza, 22:30 (UD)\n07 June at Mamm (UD)\n15 June at Terminal Festival (UD)",
 			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
